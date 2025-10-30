@@ -1,0 +1,7 @@
+main.container { padding-top: 1rem; }
+.flash { background: #fde68a; color: #5b3e00; padding: .75rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+.footer { margin-top: 2rem; text-align: center; color: #888; }
+.pill { display: inline-block; padding: .2rem .6rem; border-radius: 999px; background: #e5e7eb; }
+.pill.success { background: #dcfce7; color: #166534; }
+pre.treatment { white-space: pre-wrap; background: #f9fafb; border-radius: 8px; padding: .75rem; }
+
