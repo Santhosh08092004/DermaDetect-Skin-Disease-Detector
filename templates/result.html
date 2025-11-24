@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+  <h2>Diagnosis Results</h2>
+  <div class="grid">
+    <div>
+      <article>
+        <h3>📋 Patient Details</h3>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Age:</strong> {{ age }}</p>
+        <p><strong>Gender:</strong> {{ gender }}</p>
+        <img src="data:image/jpeg;base64,{{ image_data }}" alt="Uploaded"
+          style="max-width: 100%; border-radius: 8px;" />
+      </article>
+    </div>
+    <div>
+      <article>
+        <h3>🔍 Prediction</h3>
+        <p><strong>Predicted Condition:</strong> <span class="pill success">{{ predicted_class }}</span></p>
+        <p><strong>Confidence:</strong> <span class="pill">{{ '%.2f'|format(confidence) }}%</span></p>
+        <h3>💊 Treatment Plan & Risk Assessment</h3>
+        <div class="treatment-content">{{ treatment | safe }}</div>
+        <form action="{{ url_for('download') }}" method="post">
+          <input type="hidden" name="pdf_data" value="{{ pdf_data }}" />
+          <input type="hidden" name="name" value="{{ name }}" />
+          <button type="submit" class="secondary">Download Full Report (PDF)</button>
+        </form>
+        <a href="{{ url_for('index') }}" role="button" class="contrast">Analyze Another Image</a>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}
